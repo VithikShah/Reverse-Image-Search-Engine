@@ -1,16 +1,47 @@
 <!DOCTYPE html>
+<head>
 <title>Upload File</title>
-<h1>Photo Upload</h1>
-<form method="POST" enctype="multipart/form-data">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+<style>
+	.navbar-header {
+    float: left;
+    padding: 15px;
+    text-align: center;
+    width: 100%;
+}
+.navbar-brand {float:none;}
+</style>
+</head>
+<body>
+<nav class="navbar navbar-default" role="navigation">
+  <div class="navbar-header">
+    <a class="navbar-brand" href="#">REVERSE IMAGE SEARCH ENGINE</a>
+  </div>
+</nav>
+<form method="POST" enctype="multipart/form-data" CLASS="form">
      {{ form.hidden_tag() }}
+    <div class="form-group">
+    	<label>Upload Photos</label>
      {{ form.photo }}
+ </div>
      {% for error in form.photo.errors %}
          <span style="color: red;">{{ error }}</span>
      {% endfor %}
+     <div class="form-group">
      {{ form.submit }}
+ </div>
 </form>
 
 {% if file_url %}
 <br>
 <img src="{{ file_url }}">
 {% endif %}
+</body>
+</html>
